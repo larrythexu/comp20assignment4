@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Joe's Hotdogs</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+        hotdogs = prompt("How many of Joe's Signature Hotdogs do you want?", "");
+        /* null case */
+        if (hotdogs == null)
+          hotdogs = 0;
+
+        fries = prompt("How many of Joe's All-American French Fries do you" +
+                       " want?", "");
+        /* null case */
+        if (fries == null)
+          fries = 0;
+
+        sodas = prompt("How many of Joe's Bubbly Sodas do you want?", "");
+        /* null case */
+        if (sodas == null)
+          sodas = 0;
+
+        hotdogCost = hotdogs * 3.25;
+        friesCost = fries * 2.00;
+        sodasCost = sodas * 1.50;
+
+        subtotal = (hotdogCost) + (friesCost) + (sodasCost);
+        total = subtotal;
+
+        /* Joe's special */
+        if (subtotal >= 20.00) {
+          discount = subtotal * 0.10;
+          total -= discount;
+        }
+
+        /* MA meal tax */
+        tax = subtotal * 0.0625;
+        total += tax;
+
+        /* display receipt */
+        document.write("Here is your Joe's Hotdogs order:<br><br>");
+
+        document.write("Hotdogs - Qty: " + hotdogs + " - Cost: $" +
+                      (Math.round(hotdogCost * 100) / 100).toFixed(2) + "<br>");
+
+        document.write("French Fries - Qty: " + fries + " - Cost: $" +
+                      (Math.round(friesCost * 100) / 100).toFixed(2) + "<br>");
+
+        document.write("Sodas - Qty: " + sodas + " - Cost: $" +
+                      (Math.round(sodasCost * 100) / 100).toFixed(2) + "<br>");
+
+        document.write("Subtotal: $" + (Math.round(subtotal * 100)
+                       / 100).toFixed(2) + "<br>");
+
+        if (subtotal >= 20.00) {
+          document.write("Joe's Special Discount Applied: -$" +
+                        (Math.round(discount * 100) / 100).toFixed(2) + "<br>");
+        }
+
+        document.write("Tax: $" + (Math.round(tax * 100) / 100).toFixed(2)
+                       + "<br>");
+
+        document.write("Your Total: $" + (Math.round(total * 100)
+                       / 100).toFixed(2) + "<br>");
+    </script>
+  </body>
+</html>
